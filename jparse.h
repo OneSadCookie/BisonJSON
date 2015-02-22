@@ -7,8 +7,8 @@ struct YYLTYPE;
 
 typedef struct JP_Parse_Context
 {
-	void *scanner;
-	JSON *out_json;
+    void *scanner;
+    JSON *out_json;
 }
 JP_Parse_Context;
 #define JP_SCANNER ctx->scanner

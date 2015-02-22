@@ -7,48 +7,48 @@
 
 typedef enum J_Type
 {
-	J_OBJECT,
-	J_ARRAY,
-	J_STRING,
-	J_NUMBER,
-	J_BOOLEAN,
-	J_NULL,
+    J_OBJECT,
+    J_ARRAY,
+    J_STRING,
+    J_NUMBER,
+    J_BOOLEAN,
+    J_NULL,
 }
 J_Type;
 
 typedef struct J_Pair
 {
-	char        *key;
-	struct JSON *value;
+    char        *key;
+    struct JSON *value;
 }
 J_Pair;
 
 typedef struct J_Object
 {
-	size_t  count;
-	J_Pair *members;
+    size_t  count;
+    J_Pair *members;
 }
 J_Object;
 
 typedef struct J_Array
 {
-	size_t        count;
-	struct JSON **elements;
+    size_t        count;
+    struct JSON **elements;
 }
 J_Array;
 
 typedef struct JSON
 {
-	union
-	{
-		J_Object object;
-		J_Array  array;
-		char    *string;
-		double   number;
-		bool     boolean;
-	}
-	guts;
-	J_Type type;
+    union
+    {
+        J_Object object;
+        J_Array  array;
+        char    *string;
+        double   number;
+        bool     boolean;
+    }
+    guts;
+    J_Type type;
 }
 JSON;
 

@@ -1,15 +1,15 @@
 %{
-	#include "jparse.h"
+    #include "jparse.h"
 %}
 
 %pure-parser
 
 %union {
-	double  number;
-	char   *string;
+    double  number;
+    char   *string;
 
-	JSON   *json;
-	J_Pair  pair;
+    JSON   *json;
+    J_Pair  pair;
 }
 
 %lex-param { void *JP_SCANNER }
