@@ -6,7 +6,7 @@
 		"things",
 		null,
 		{
-			"answer": 42
+			"not the answer": -42e0
 		}
 	]
 }
