@@ -4,7 +4,7 @@ OBJECTS := $(patsubst %.c,out/%.c.o,$(SOURCES))
 all: json
 
 clean:
-	rm -rf obj json json.dSYM
+	rm -rf out json
 
 json: $(OBJECTS) Makefile
 	@mkdir -p $(@D)
