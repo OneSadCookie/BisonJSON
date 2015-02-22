@@ -1,0 +1,12 @@
+{
+	"pi": 3.14,
+	"cookies": true,
+	"windows": false,
+	"stuff": [
+		"things",
+		null,
+		{
+			"answer": 42
+		}
+	]
+}
