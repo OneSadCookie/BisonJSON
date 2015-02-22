@@ -18,18 +18,26 @@ int main(int argc, char **argv)
 	assert(argc >= 2);
 	FILE *infile = fopen(argv[1], "rb");
 	assert(infile);
-	fseek(infile, SEEK_END, 0);
+	fseek(infile, 0, SEEK_END);
 	size_t size = (size_t)ftell(infile);
 	void *text = malloc(size);
-	fseek(infile, SEEK_SET, 0);
+	fseek(infile, 0, SEEK_SET);
 	size_t read = fread(text, 1, size, infile);
 	assert(read == size);
 
 	JP_Parse_Context ctx;
+	ctx.out_json = NULL;
 	jplex_init(&ctx.scanner);
 	YY_BUFFER_STATE buffer = jp_scan_bytes(text, size, ctx.scanner);
 	jpparse(&ctx);
 	jp_delete_buffer(buffer, ctx.scanner);
+	jplex_destroy(ctx.scanner);
+	ctx.scanner = NULL;
 
+	if (ctx.out_json)
+	{
+		j_write_to_file(stdout, ctx.out_json);
+	}
+	puts("");
 	return 0;
 }
